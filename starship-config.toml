@@ -1,0 +1,309 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+command_timeout = 1000
+right_format = """$time"""
+
+palette = "midnightsurf"
+
+format = """
+[](red)\
+$os\
+$username\
+[](bg:peach fg:red)\
+$directory\
+[](bg:yellow fg:peach)\
+$git_branch\
+$git_status\
+[](fg:yellow bg:green)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:green bg:sapphire)\
+$conda\
+[](fg:sapphire bg:lavender)\
+$cmd_duration\
+$line_break\
+$character"""
+
+[os]
+disabled = false
+style = "bg:red fg:crust"
+
+[os.symbols]
+Macos = "⌘"
+Linux = "󰌽"
+Windows = ""
+Ubuntu = "󰕈"
+
+[username]
+show_always = true
+style_user = "bg:red fg:crust"
+style_root = "bg:red fg:crust"
+format = '[ squid]($style)'
+
+[directory]
+style = "bg:peach fg:crust"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:yellow"
+format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
+
+[git_status]
+style = "bg:yellow"
+format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
+
+[c]
+symbol = " "
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[php]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[java]
+symbol = " "
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+
+[haskell]
+style = "bg:red fg:crust"
+format = '[ $user]($style)'
+
+[python]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
+
+[conda]
+symbol = "  "
+style = "fg:crust bg:sapphire"
+format = '[$symbol$environment ]($style)'
+ignore_base = false
+
+[time]
+disabled = false
+style = "#939594"
+format = "[$time]($style)"
+
+[cmd_duration]
+show_milliseconds = true
+format = "  in $duration "
+style = "bg:lavender"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[⟹](fg:green)'
+error_symbol = '[⟹](fg:red)'
+vimcmd_symbol = '[❮](bold fg:green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
+vimcmd_replace_symbol = '[❮](bold fg:lavender)'
+vimcmd_visual_symbol = '[❮](bold fg:yellow)'
+
+[palettes.midnight]
+red = "#a27cb8"        # muted lavender (OS/user block)
+peach = "#8f90c7"      # soft indigo (Directory)
+yellow = "#6a7fd2"     # periwinkle (Git block)
+green = "#4e75aa"      # muted blue (Language block)
+sapphire = "#3c5a89"   # dark sapphire (Conda block)
+lavender = "#2e3f63"   # deep indigo (Duration/End)
+crust = "#1e1e2e"      # dark background
+text = "#cdd6f4"       # soft foreground
+
+[palettes.mellow]
+red = "#e29eca"         # was lavender → moved to front
+peach = "#ea83a5"       # was red → slightly pinker
+yellow = "#f5a191"      # was peach
+green = "#e6b99d"       # was yellow
+sapphire = "#90b99f"    # was green
+lavender = "#aca1cf"    # was sapphire
+crust = "#27272a"
+text = "#c9c7cd"
+
+[palettes.tokyonight]
+red = "#f7768e"        # pinkish red (OS/user)
+peach = "#ff9e64"      # warm peach (Directory)
+yellow = "#e0af68"     # gold (Git)
+green = "#9ece6a"      # lime green (Language)
+sapphire = "#7aa2f7"   # sky blue (Conda)
+lavender = "#bb9af7"   # purple (Duration)
+crust = "#1a1b26"      # background
+text = "#c0caf5"       # soft foreground
+
+[palettes.onedark]
+red = "#e06c75"        # red (OS/user)
+peach = "#d19a66"      # orange/peach (Directory)
+yellow = "#e5c07b"     # yellow (Git)
+green = "#98c379"      # green (Language)
+sapphire = "#61afef"   # cyan/blue (Conda)
+lavender = "#c678dd"   # purple (Duration)
+crust = "#21252b"      # background
+text = "#abb2bf"       # foreground
+
+[palettes.inkwash]
+red = "#6e738d"        # muted indigo (OS/user)
+peach = "#5c5f77"      # gray violet (Directory)
+yellow = "#7f85a3"     # dusty periwinkle (Git)
+green = "#4c566a"      # slate (Language blocks)
+sapphire = "#3e4b63"   # dark steel blue (Conda)
+lavender = "#292e42"   # near-black purple (Duration/end)
+crust = "#1c1e26"      # deep charcoal background
+text = "#dcdfe4"       # light gray foreground
+
+[palettes.stormfog]
+red = "#8c7c73"        # warm taupe (OS/user)
+peach = "#a39e9b"      # greige (Directory)
+yellow = "#7d7461"     # faded olive (Git)
+green = "#5b5855"      # graphite (Language blocks)
+sapphire = "#403d39"   # aged paper black (Conda)
+lavender = "#2c2a27"   # charcoal brown (Duration)
+crust = "#1a1816"      # blackened brown
+text = "#dedbd7"       # parchment white
+
+[palettes.midnightsurf]
+red = "#506d85"        # cool steel blue (OS/user)
+peach = "#425b73"      # desaturated navy (Directory)
+yellow = "#3a4c61"     # deep slate blue (Git)
+green = "#324558"      # grayish deep blue (Languages)
+sapphire = "#273a4c"   # ship hull blue (Conda)
+lavender = "#1f2e3d"   # cold twilight (Duration)
+crust = "#121a24"      # dark night blue
+text = "#d0dae4"       # ice gray
+
+[palettes.nocturneviolet]
+red = "#775c7a"        # dusty mauve (OS/user)
+peach = "#6a4c69"      # soft plum (Directory)
+yellow = "#5d3c59"     # muted blackberry (Git)
+green = "#4e334d"      # grape peel (Languages)
+sapphire = "#3c283b"   # wine shadow (Conda)
+lavender = "#2b1d2c"   # rich eggplant (Duration)
+crust = "#1a111a"      # ink black
+text = "#ded3e4"       # orchid mist
+
+[palettes.industrialalloy]
+red = "#8a7e72"         # oxidized copper (OS/user)
+peach = "#9d8670"       # aged bronze (Directory)
+yellow = "#b5a476"      # antique brass (Git)
+green = "#79817c"       # dull steel (Languages)
+sapphire = "#6a7a88"    # brushed iron (Conda)
+lavender = "#5f5d66"    # forged pewter (Duration)
+crust = "#1f1f1f"       # metal shop black
+text = "#d4d4d4"        # silver-gray
+
+[palettes.cyberfade]
+red = "#f46e7c"         # soft neon pink (OS/user)
+peach = "#f6a96e"       # faded orange CRT (Directory)
+yellow = "#f9e26b"      # muted digital yellow (Git)
+green = "#82f6b0"       # ghost mint (Languages)
+sapphire = "#7ebff2"    # cyan glitch (Conda)
+lavender = "#c597f9"    # synth purple (Duration)
+crust = "#16161d"       # cyber black
+text = "#e5e5f1"        # desaturated ice
+
+[palettes.autumndust]
+red = "#c36a4c"         # burnt sienna (OS/user)
+peach = "#d4975b"       # pumpkin spice (Directory)
+yellow = "#e3c07a"      # golden wheat (Git)
+green = "#8e7c57"       # dry olive (Languages)
+sapphire = "#6e6251"    # wet bark (Conda)
+lavender = "#50443b"    # warm ash (Duration)
+crust = "#1d1a17"       # dusk brown
+text = "#f0e7d7"        # soft parchment
+
+[palettes.sunroom]
+red = "#d9887e"         # coral blush (OS/user)
+peach = "#edbd84"       # vanilla cream (Directory)
+yellow = "#f3e1a0"      # warm daylight (Git)
+green = "#aac39f"       # light pistachio (Languages)
+sapphire = "#93bbcf"    # powder sky (Conda)
+lavender = "#bfa4c8"    # mauve mist (Duration)
+crust = "#2a2520"       # soft walnut
+text = "#f6f3ef"        # eggshell white
+
+[palettes.modernpastel]
+red = "#d6a3a3"         # dusty rose (OS/user)
+peach = "#e4c1a1"       # muted apricot (Directory)
+yellow = "#f0e6b1"      # soft banana (Git)
+green = "#b9d4b1"       # aloe green (Languages)
+sapphire = "#b0cde0"    # glacier blue (Conda)
+lavender = "#d0bce0"    # pastel orchid (Duration)
+crust = "#2e2e32"       # graphite charcoal
+text = "#eaeaea"        # pale warm gray
+
+[palettes.crimsondust]
+red = "#a65f68"        # vintage rose (OS/user)
+peach = "#8f4e57"      # deep blush (Directory)
+yellow = "#7b434d"     # dried cherry (Git)
+green = "#65383f"      # bloodwood (Languages)
+sapphire = "#4e2d32"   # dark velvet (Conda)
+lavender = "#391f26"   # dried wine (Duration)
+crust = "#1a0e12"      # coal black
+text = "#e3cfd1"       # dusty silk
+
+[palettes.blueash]
+red = "#26477d"        # dusk blue (OS/user)
+peach = "#3a65ba"      # base — azure steel (Directory)
+yellow = "#567cc2"     # overcast sky (Git)
+green = "#6c90cb"      # chalk blue (Languages)
+sapphire = "#829fd2"   # faded cobalt (Conda)
+lavender = "#9aafd9"   # pale glacier (Duration)
+crust = "#101520"      # near-black navy
+text = "#d8e2f2"       # cool pale silver
+
+[palettes.royalbasement]
+red = "#2a145f"        # deep grape (OS/user)
+peach = "#381a78"      # base — regal indigo (Directory)
+yellow = "#4e2c92"     # velvet night (Git)
+green = "#5c3aa0"      # blue violet dusk (Languages)
+sapphire = "#6e4cb3"   # muted iris (Conda)
+lavender = "#8c6fca"   # soft lavender (Duration)
+crust = "#160e2a"      # dark plum black
+text = "#e2daf3"       # lilac silver
+
+[palettes.phantomblue]
+red = "#322d78"        # inkwell violet (OS/user)
+peach = "#3a3b8f"      # periwinkle haze (Directory)
+yellow = "#3f59b1"     # royal blue (Git)
+green = "#4b6dc7"      # oceanic cobalt (Languages)
+sapphire = "#6882cc"   # northern fjord (Conda)
+lavender = "#7b8bd7"   # powder violet (Duration)
+crust = "#121223"      # space black
+text = "#d1d5ed"       # soft blue-gray
+
